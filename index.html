@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="https://kit.fontawesome.com/a14ae32021.js" crossorigin="anonymous"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <title>For My Niayesh – 120 Days & Counting</title>
+    <style type="text/css">
+        @font-face {
+            font-family: digit;
+            src: url('digital-7_mono.ttf') format("truetype");
+        }
+    </style>
+    <link href="css/default.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/garden.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+<div id="mainDiv">
+    <div id="content">
+        <div id="code">
+            <span class="comments">/**</span><br />
+            <span class="space"/><span class="comments">* To the love of my life – Niayesh</span><br />
+            <span class="space"/><span class="comments">*/</span><br />
+            Hey ,<br />
+            1145 kilometers can’t stop what we have.<br />
+            <span class="comments">// Every night I fall asleep with your voice in my ears</span><br />
+            Every morning I wake up counting the days until I hold you.<br />
+            Distance only makes my heart grow louder for you.<br />
+            <br />
+            They said long distance never works…<br />
+            But look at us – 120 days strong and still counting.<br />
+            Every second apart is just another second closer to forever.<br />
+            <br />
+            I don’t count the miles between us,<br />
+            I count the heartbeats until I see you again.<br />
+            <br />
+            You are my today, my tomorrow, and every day after that.<br />
+            No ocean is too wide, no time zone too far.<br />
+            My love travels faster than any plane ever could.<br />
+            <br />
+            If you miss me, just touch the heart below…<br />
+            <br />
+            <span id="heartspan">
+                <a href="your-photo-together.jpg" target="_blank">
+                    <i class="fas fa-heart" id="icon"></i>
+                </a>
+            </span>
+        </div>
+
+        <div id="loveHeart">
+            <canvas id="garden"></canvas>
+            <div id="words">
+                <div id="messages">
+                    Niayesh & Me<br/>120 Days & Forever
+                    <div id="elapseClock"></div>
+                </div>
+                <div id="loveu">
+                    I love you more than yesterday,<br/>
+                    and less than tomorrow.<br/><br/>
+                    <div class="signature">– Forever yours Pouria</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var offsetX = $("#loveHeart").width() / 2;
+    var offsetY = $("#loveHeart").height() / 2 - 55;
+
+    // تنظیم تایمر از ۱۲۰ روز پیش (یعنی الان دقیقاً ۱۲۰ روز گذشته)
+    var together = new Date();
+    together.setTime(Date.now() - 120 * 24 * 60 * 60 * 1000); // ۱۲۰ روز پیش
+    together.setHours(0);
+    together.setMinutes(0);
+    together.setSeconds(0);
+    together.setMilliseconds(0);
+
+    if (!document.createElement('canvas').getContext) {
+        var msg = document.createElement("div");
+        msg.id = "errorMsg";
+        msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend Chrome or Firefox";
+        document.body.appendChild(msg);
+        $("#code").css("display", "none")
+    } else {
+        setTimeout(function () {
+            startHeartAnimation();
+        }, 3000);
+
+        timeElapse(together);
+        setInterval(function () {
+            timeElapse(together);
+        }, 500);
+
+        adjustCodePosition();
+        $("#code").typewriter();
+    }
+</script>
+</body>
+</html>
